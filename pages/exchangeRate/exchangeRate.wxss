@@ -1,0 +1,9 @@
+.weui-cells::before {
+  border-top:0rpx;
+}
+.usermotto {
+  margin-top: 80px;
+}
+.weui-label {
+  width: 160px;
+}

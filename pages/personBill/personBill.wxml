@@ -1,0 +1,30 @@
+<view class="page">
+    <view class="page__bd">
+
+        <view class="weui-cells weui-cells_after-title margin_top">
+            <view wx:for="{{billList}}" class="weui-cell weui-cell_access" bindtap="edit_bill" data-bill="{{item}}" hover-class="weui-cell_active">
+                <view class="weui-cell__bd">
+                    {{item.pointsItem.itemName}}
+                </view>
+                <view class="weui-cell__ft" style=" margin-right:18px;">
+                    {{item.num}}次
+                </view>
+                <view class="weui-cell__ft weui-cell__ft_in-access">
+                    {{item.billDate}}
+                </view>
+            </view>
+        </view>
+        <view class="weui-loadmore" wx:if="{{isLoad}}">
+            <view class="weui-loading"></view>
+            <view class="weui-loadmore__tips">正在加载</view>
+        </view>
+        <view class="weui-loadmore weui-loadmore_line" bindtap="page_refresh" wx:if="{{billList.length==0&!isLoad}}">
+            <view class="weui-loadmore__tips weui-loadmore__tips_in-line">暂无数据</view>
+        </view>
+    </view>
+
+
+    <view class="br"></view>
+    <button class="btn_add" type="primary" bindtap="add_bill">填报积分</button>
+
+</view>

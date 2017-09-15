@@ -1,0 +1,52 @@
+<view class="page">
+  <view class="form_panel">
+    <view class="panel_head">工作日期</view>
+    <view class="panel_body">
+      <picker start="{{startData}}" end="{{nowdate}}" mode="date" class="panel_body_picker" bindchange="change_date">
+        <view class="picker" class="panel_body_input_quyu" wx:if="{{!isSelectTime}}">
+          请选择时间
+        </view>
+        <view class="picker" start="{{startData}}" end="{{nowdate}}" class="panel_body_input" wx:else>
+          {{datetTime}}
+        </view>
+      </picker>
+    </view>
+  </view>
+  <view class="form_panel">
+    <view class="panel_head">项目类别</view>
+    <view class="panel_body">
+      <picker class="panel_body_picker" range-key="groupName" bindchange="change_type" value="{{typeIndex}}" range="{{pointsType}}">
+        <view class="picker" class="panel_body_input_quyu" wx:if="{{!isSelectType}}">
+          请选择积分类型
+        </view>
+        <view class="picker" class="panel_body_input" wx:else>
+          {{pointsType[typeIndex].groupName}}
+        </view>
+      </picker>
+    </view>
+  </view>
+  <view class="form_panel">
+    <view class="panel_head">积分项目</view>
+    <view class="panel_body">
+      <picker class="panel_body_picker" range-key="itemName" bindchange="change_item" value="{{itemIndex}}" range="{{pointsItem}}">
+        <view class="picker" class="panel_body_input_quyu" wx:if="{{!isSelectItem}}">
+          请选择积分项
+        </view>
+        <view class="picker" class="panel_body_input" wx:else>
+          {{pointsItem[itemIndex].itemName}}
+        </view>
+      </picker>
+    </view>
+  </view>
+  <view class="form_panel">
+    <view class="panel_head">完成数量</view>
+    <view class="panel_body">
+      <input class="panel_body_input" type="number" value="{{pointsNum}}" bindinput="change_num" placeholder="填写数量" />
+    </view>
+  </view>
+  <view class="weui-btn-area">
+
+    <button bindtap="update" class="weui-btn" type="primary">保存</button>
+    <button bindtap="del_bill" class="weui-btn">删除</button>
+  </view>
+</view>

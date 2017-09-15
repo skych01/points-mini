@@ -1,0 +1,29 @@
+<view class="page">
+    <view class="weui-cells__title">请选择要兑换的员工</view>
+      <view class="weui-cells weui-cells_after-title">
+        <view wx:for="{{registList}}" class="weui-cell weui-cell_switch">
+          <view class="weui-cell__bd">
+            {{item.realName}}
+          </view>
+          <view class="weui-cell__ft">
+            <switch bindchange="switch_change" data-id="{{item.userId}}"/>
+          </view>
+        </view>
+        <view class="weui-panel">
+            <view class="weui-panel__bd">
+                <view class="weui-media-box weui-media-box_small-appmsg">
+                    <view class="weui-cells weui-cells_in-small-appmsg">
+                      <block wx:for="{{employeeList}}" wx:key="userId">
+                        <navigator url="../exchangePoints/exchangePoints?openId={{item.openId}}&employeeName={{item.realName}}" class="weui-cell weui-cell_access" hover-class="weui-cell_active">
+                            <view class="weui-cell__bd weui-cell_primary">
+                                <view>{{item.realName}}</view>
+                            </view>
+                            <view class="weui-cell__ft weui-cell__ft_in-access"></view>
+                        </navigator>
+                      </block>
+                    </view>
+                </view>
+            </view>
+        </view>
+      </view>
+</view>

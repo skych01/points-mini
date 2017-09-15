@@ -1,0 +1,15 @@
+<!--index.wxml-->
+<view class="container page">
+    <view bindtap="bindViewTap" class="userinfo">
+        <image class="userinfo-avatar" src="{{userInfo.avatarUrl}}" background-size="cover"></image>
+        <text wx:if="{{realName!=null}}" class="userinfo-nickname">{{realName}}</text>
+        <text wx:else class="userinfo-nickname">{{userInfo.nickName}}</text>
+    </view>
+    <view class="usermotto">
+        <text class="user-motto">欢迎进入积分系统！</text>
+    </view>
+    <button wx:if="{{isAdmin}}" bindtap="toExchange" class="weui-btn btn-w" type="primary" plain="true">积分兑换</button>
+    <button wx:if="{{isAdmin}}" bindtap="toEmployeeManage" class="weui-btn btn-w" type="primary" plain="true">员工管理</button>
+    <button wx:if="{{isAdmin}}" bindtap="toParamSetting" class="weui-btn btn-w" type="primary" plain="true">参数设置</button>
+
+</view>

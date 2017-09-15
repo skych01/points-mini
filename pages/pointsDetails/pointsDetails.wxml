@@ -1,0 +1,170 @@
+<view class="page">
+  <view class="page__hd">
+    <view class="weui-cells__title">
+      <text class="text_Style">{{realName}}</text> 的积分账单
+    </view>
+    <view class="weui-cells__title" wx:if="{{label != 2&&label != 3&&label != 4}}">
+      {{label}}
+    </view>
+    <view class="weui-cells__title" wx:if="{{label==2}}">
+      赠送填报积分
+    </view>
+    <view class="weui-cells__title" wx:if="{{label==3&&givegGive.points>0}}">
+      获得增送积分
+    </view>
+    <view class="weui-cells__title" wx:if="{{label==3&&givegGive.points<0}}">
+      增送增送积分
+    </view>
+    <view class="weui-cells__title" wx:if="{{label==4}}">
+      兑换积分
+    </view>
+  </view>
+  <view class="page__bd">
+    <view class="weui-form-preview" hidden="{{isShow}}">
+      <block wx:if="{{label != 2&&label != 3&&label != 4}}">
+        <view class="weui-form-preview__hd">
+          <view class="weui-form-preview__label">积分</view>
+          <view class="weui-form-preview__value_in-hd">{{pointBill.num*pointBill.pointsItem.itemValue}}</view>
+        </view>
+        <view class="weui-form-preview__bd">
+          <view class="weui-form-preview__item">
+            <view class="weui-form-preview__label">积分来源</view>
+            <view class="weui-form-preview__value">填报</view>
+          </view>
+          <view class="weui-form-preview__item">
+            <view class="weui-form-preview__label">项目类别</view>
+            <view class="weui-form-preview__value">{{pointBill.pointsItem.pointsItemGroup.groupName}} - {{pointBill.pointsItem.itemName}}</view>
+          </view>
+          <view class="weui-form-preview__item">
+            <view class="weui-form-preview__label">项目积分</view>
+            <view class="weui-form-preview__value">{{pointBill.pointsItem.itemValue}}</view>
+          </view>
+          <view class="weui-form-preview__item">
+            <view class="weui-form-preview__label">数量</view>
+            <view class="weui-form-preview__value">{{pointBill.num}}</view>
+          </view>
+          <view class="weui-form-preview__item">
+            <view class="weui-form-preview__label">工作时间</view>
+            <view class="weui-form-preview__value">{{pointBill.billTime}}</view>
+          </view>
+          <view class="weui-form-preview__item">
+            <view class="weui-form-preview__label">填报时间</view>
+            <view class="weui-form-preview__value">{{pointBill.updateTime ? pointBill.updateTime : pointBill.createTime}}</view>
+          </view>
+
+
+        </view>
+      </block>
+      <block wx:elif="{{label == 2}}">
+        <view class="weui-form-preview__hd">
+          <view class="weui-form-preview__label">积分</view>
+          <view class="weui-form-preview__value_in-hd">-{{giveBill.points}}</view>
+        </view>
+        <view class="weui-form-preview__bd">
+          <view class="weui-form-preview__item">
+            <view class="weui-form-preview__label">消费类型</view>
+            <view class="weui-form-preview__value">赠送填报积分</view>
+          </view>
+
+          <block wx:for="{{givePeople}}" wx:key="{{index}}" wx:if="{{item.points>0}}">
+            <view class="weui-form-preview__item">
+              <view class="weui-form-preview__label">赠送对象</view>
+              <view class="weui-form-preview__value">{{item.pointsUser.realName}}</view>
+            </view>
+            <block wx:if="{{givePeople.length > 1 && givePeople.length -1== index}}">
+              <view class="weui-form-preview__item">
+                <view class="weui-form-preview__label">分配方式</view>
+                <view class="weui-form-preview__value">均分</view>
+              </view>
+              <view class="weui-form-preview__item">
+                <view class="weui-form-preview__label">人均得分</view>
+                <view class="weui-form-preview__value">{{item.points}}</view>
+              </view>
+            </block>
+          </block>
+
+          <view class="weui-form-preview__item">
+            <view class="weui-form-preview__label">消费时间</view>
+            <view class="weui-form-preview__value">{{giveBill.createTime}}</view>
+          </view>
+        </view>
+      </block>
+      <block wx:elif="{{label == 3}}">
+        <view class="weui-form-preview__hd">
+          <view class="weui-form-preview__label">积分</view>
+          <view class="weui-form-preview__value_in-hd">{{givegGive.points}}</view>
+        </view>
+        <view class="weui-form-preview__bd">
+          <view class="weui-form-preview__item">
+            <view class="weui-form-preview__label">{{givegGive.points > 0 ? '积分来源' : '消费类型'}}</view>
+            <view class="weui-form-preview__value">{{givegGive.points > 0 ? '' : '赠送'}}赠送积分</view>
+          </view>
+          <block wx:if="{{givegGive.points > 0 }}">
+            <view class="weui-form-preview__item">
+              <view class="weui-form-preview__label">赠送人</view>
+              <view class="weui-form-preview__value">{{givegGive.pointsGiveRelate.pointsUser.realName}}</view>
+            </view>
+          </block>
+          <block wx:else>
+            <block wx:for="{{givePeople}}" wx:key="{{index}}" wx:if="{{item.points>0}}">
+              <view class="weui-form-preview__item">
+                <view class="weui-form-preview__label">赠送对象</view>
+                <view class="weui-form-preview__value">{{item.pointsUser.realName}}</view>
+              </view>
+              <block wx:if="{{givePeople.length > 1 && givePeople.length -1== index}}">
+                <view class="weui-form-preview__item">
+                  <view class="weui-form-preview__label">分配方式</view>
+                  <view class="weui-form-preview__value">均分</view>
+                </view>
+                <view class="weui-form-preview__item">
+                  <view class="weui-form-preview__label">人均得分</view>
+                  <view class="weui-form-preview__value">{{item.points}}</view>
+                </view>
+              </block>
+            </block>
+
+          </block>
+          <view class="weui-form-preview__item">
+            <view class="weui-form-preview__label">消费时间</view>
+            <view class="weui-form-preview__value">{{givegGive.createTime}}</view>
+          </view>
+        </view>
+      </block>
+      <block wx:elif="{{label == 4}}">
+        <view class="weui-form-preview__hd">
+          <block wx:if="{{exchange.billPoints != 0}}">
+            <view class="weui-form-preview__label">填报积分</view>
+            <view class="weui-form-preview__value_in-hd">{{-exchange.billPoints}}</view>
+          </block>
+          <block wx:if="{{exchange.givePoints != 0}}">
+            <view class="weui-form-preview__label">赠送积分</view>
+            <view class="weui-form-preview__value_in-hd">{{-exchange.givePoints}}</view>
+          </block>
+        </view>
+        <view class="weui-form-preview__bd">
+          <view class="weui-form-preview__item">
+            <view class="weui-form-preview__label">消费类型</view>
+            <view class="weui-form-preview__value">兑换</view>
+          </view>
+          <view class="weui-form-preview__item">
+            <view class="weui-form-preview__label">兑换人</view>
+            <view class="weui-form-preview__value">{{operator.realName}}</view>
+          </view>
+          <view class="weui-form-preview__item">
+            <view class="weui-form-preview__label">填报积分兑换比率</view>
+            <view class="weui-form-preview__value">{{exchange.billPointsRate}}%</view>
+          </view>
+          <view class="weui-form-preview__item">
+            <view class="weui-form-preview__label">赠送积分兑换比率</view>
+            <view class="weui-form-preview__value">{{exchange.givePointsRate}}%</view>
+          </view>
+          <view class="weui-form-preview__item">
+            <view class="weui-form-preview__label">消费时间</view>
+            <view class="weui-form-preview__value">{{exchange.createTime}}</view>
+          </view>
+
+        </view>
+      </block>
+    </view>
+  </view>
+</view>

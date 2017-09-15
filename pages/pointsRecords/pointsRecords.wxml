@@ -1,0 +1,157 @@
+<view class="page">
+  <view class="page__hd">
+    <view class="weui-cell__hd">
+      <view class="weui-cells__title">
+        <text class="text_Style">{{realName}}</text> 的积分账单
+      </view>
+    </view>
+  </view>
+  <!-- <view class="page__bd">
+    <view class="listRecords">
+      <block wx:for="{{pointsRecords}}"> -->
+  <!-- <navigator url="../pointsDetails/pointsDetails?relateId={{item.relateId}}&label={{item.label}}" class="weui-media-box weui-media-box_appmsg" hover-class="weui-cell_active">
+          <view class="weui-media-box__bd weui-media-box__bd_in-appmsg">
+            <view class="weui-media-box__desc">{{item.create_time.weekDay}}</view>
+            <view class="weui-media-box__desc" style="margin-top:10px;">{{item.create_time.createTime}}</view>
+          </view>
+          <view class="weui-media-box__hd weui-media-box__hd_in-appmsg text" style="width:60%">
+            <block wx:if="{{item.label != 4 &&item.label != 2 &&item.label != 3 }}">
+              <view class="weui-form-preview__label">
+                {{item.label}}</view>
+              <view class="weui-form-preview__value_in-hd">{{item.billPoints}}</view>
+            </block>
+            <block wx:elif="{{item.label == 2}}">
+              <view class="weui-form-preview__label">
+                赠送填报积分</view>
+              <view class="weui-form-preview__value_in-hd">{{item.billPoints}}</view>
+            </block>
+            <block wx:elif="{{item.label == 3}}">
+              <view class="weui-form-preview__label">
+                <block wx:if="{{item.givePoints < 0}}">赠送</block>
+                <block wx:else>获得</block>赠送积分</view>
+              <view class="weui-form-preview__value_in-hd">{{item.givePoints}}</view>
+            </block>
+            <block wx:elif="{{item.label == 4}}">
+              <view class="weui-form-preview__label">
+                兑换
+                <block wx:if="{{item.billPoints != 0}}">填报</block>
+                <block wx:if="{{item.billPoints != 0 && item.givePoints}}">,</block>
+                <block wx:if="{{item.givePoints != 0}}">赠送</block>积分
+              </view>
+              <label style="font-size:26px;"><block wx:if="{{item.billPoints != 0}}">
+                        {{item.billPoints}}</block><block wx:if="{{item.billPoints != 0 && item.givePoints}}">,</block><block wx:if="{{item.givePoints != 0}}">{{item.givePoints}}</block>
+                      </label>
+            </block>
+          </view>
+        </navigator> -->
+
+  <!-- <navigator url="../pointsDetails/pointsDetails?relateId={{item.relateId}}&label={{item.label}}&realName={{realName}}" class="weui-media-box weui-media-box_appmsg" hover-class="weui-cell_active" style="padding:0px 0px 0px 10px;">
+          <view class="weui-media-box__bd weui-media-box__bd_in-appmsg" style="width:20%;">
+            <view class="weui-media-box__desc">{{item.create_time.createTime}}</view>
+          </view>
+          <view class="weui-media-box__hd weui-media-box__hd_in-appmsg text" style="width:75%">
+            <block wx:if="{{item.label != 2&&item.label != 3&&item.label != 4}}">
+              <view class="weui-form-preview__label" style="width:60%;text-align:left;text-align-last:left;">
+                {{item.label}}</view>
+              <view class="weui-form-preview__value_in-hd" style=" float: right; margin-right: 5%; width:27%">{{item.billPoints}}</view>
+            </block>
+            <block wx:elif="{{item.label == 2}}">
+              <view class="weui-form-preview__label" style="width:60%;text-align:left;text-align-last:left;">
+                赠送 填报积分</view>
+              <view class="weui-form-preview__value_in-hd" style=" float: right; margin-right: 5%; width:27%">{{item.billPoints}}</view>
+            </block>
+            <block wx:elif="{{item.label == 3}}">
+              <view class="weui-form-preview__label" style="width:60%;text-align:left;text-align-last:left;">
+                <block wx:if="{{item.givePoints < 0}}">赠送</block>
+                <block wx:else>获得</block> 赠送积分</view>
+              <view class="weui-form-preview__value_in-hd" style=" float: right; margin-right: 5%; width:27%">{{item.givePoints}}</view>
+            </block>
+            <block wx:elif="{{item.label == 4}}">
+              <view class="weui-form-preview__label" style="width:60%;text-align:left;text-align-last:left;">
+                兑换
+                <block wx:if="{{item.billPoints != 0}}">填报</block>
+                <block wx:if="{{item.billPoints != 0 && item.givePoints}}">,</block>
+                <block wx:if="{{item.givePoints != 0}}">赠送</block>积分
+              </view>
+              <label class="weui-form-preview__value_in-hd" style=" float: right; margin-right: 5%; width:27%;white-space:nowrap;text-overflow:ellipsis;overflow:hidden;">
+                <block wx:if="{{item.billPoints != 0}}">
+                {{item.billPoints}}
+                </block>
+                <block wx:if="{{item.billPoints != 0 && item.givePoints}}">
+                ,
+                </block>
+                <block wx:if="{{item.givePoints != 0}}">
+                {{item.givePoints}}
+                </block>
+              </label>
+            </block>
+          </view>
+        </navigator> -->
+
+
+
+
+  <!--<view class="weui-form-preview ">
+              <view class="weui-form-preview__hd ">
+                  <view class="weui-form-preview__item ">
+                    
+                  </view>
+              </view>
+              
+              <view class="weui-form-preview__ft ">
+                  <navigator url="../pointsDetails/pointsDetails?relateId={{item.relateId}}&lable={{item.label}} " class="weui-form-preview__btn weui-form-preview__btn_primary " hover-class="weui-form-preview__btn_active ">详情</navigator>
+              </view>
+           </view>-->
+  <!-- </block>
+    </view>
+  </view> -->
+  <view class="weui-cells weui-cells_after-title ">
+    <view wx:for="{{pointsRecords}}" class="weui-cell weui-cell_access" bindtap="toPointsDetails" hover-class="weui-cell_active" data-relate-Id="{{item.relateId}}" data-lable="{{item.label}}" data-real-Name="{{realName}}">
+      <view class="weui-cell__ft" style="text-align: left; width: 20%;">
+        <view class="weui-media-box__desc">{{item.bill_date.createTime}}</view>
+      </view>
+
+      <view class="weui-cell__ft" style="text-align: left;  width: 60%; " wx:if="{{item.label != 2&&item.label != 3&&item.label != 4}}">
+        <view class="weui-media-box__desc" style="font-size:16px"> <text class="text_Style">填报 </text>{{item.label}}</view>
+      </view>
+      <view class="weui-cell__ft" style="text-align: left;  width: 60%; " wx:if="{{item.label == 2}}">
+        <view class="weui-media-box__desc" style="font-size:16px"> 赠送填报积分</view>
+      </view>
+      <view class="weui-cell__ft " style="text-align: left;  width: 60%;" wx:if="{{item.label == 3}}">
+        <view class="weui-media-box__desc" style="font-size:16px" wx:if="{{item.givePoints < 0}}"> 增送增送积分</view>
+        <view class="weui-media-box__desc" style="font-size:16px" wx:else> 获得增送积分</view>
+      </view>
+      <view class="weui-cell__ft " style="text-align: left; width: 60%;" wx:if="{{item.label == 4}}">
+        <view class="weui-media-box__desc" style="font-size:16px"> 兑换积分</view>
+      </view>
+
+      <view class="weui-cell__bd " style="text-align: center; width: 20%;  font-size:20px" wx:if="{{item.label != 2&&item.label != 3&&item.label != 4}}">
+        {{item.billPoints}}
+      </view>
+      <view class="weui-cell__bd " style="text-align: center; width: 20%;  font-size:20px" wx:if="{{item.label == 2}}">
+        {{item.billPoints}}
+      </view>
+      <view class="weui-cell__bd " style="text-align: center; width: 20%;  font-size:20px" wx:if="{{item.label == 3}}">
+        {{item.givePoints}}
+      </view>
+      <view class="weui-cell__bd " style="text-align: center; width: 20%;  font-size:20px" wx:if="{{item.label == 4}}">
+        <text> {{item.billPoints+item.givePoints}}</text>
+      </view>
+    </view>
+  </view>
+
+  <view class="page__bd" wx:if="{{pageShow}}">
+    <view class="weui-loadmore" wx:if="{{isNextPage}}">
+      <view class="weui-loading"></view>
+      <view class="weui-loadmore__tips">正在加载</view>
+    </view>
+    <view class="weui-loadmore weui-loadmore_line" wx:else>
+      <view class="weui-loadmore__tips weui-loadmore__tips_in-line">没有更多数据了</view>
+    </view>
+  </view>
+  <view class="page__bd" wx:if="{{pointsRecords.length==0}}">
+    <view class="weui-loadmore weui-loadmore_line">
+      <view class="weui-loadmore__tips weui-loadmore__tips_in-line">暂无数据</view>
+    </view>
+  </view>
+</view>

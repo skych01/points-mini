@@ -1,0 +1,38 @@
+<view >
+      <view class="page__hd">
+          <view class="weui-cell__hd"> 
+              <view style="text-align:center">积分兑换比率</view>
+          </view>
+      </view>
+      <view class="toExchange change">
+        <view class="weui-cells weui-cells_after-title">
+          <view class="weui-cell weui-cell_input">
+              <view class="weui-cell__hd"> 
+                  <view class="weui-label">填报积分兑换率</view>
+              </view>
+              <view class="weui-cell__bd">
+                  <input class="weui-input" value="{{billExchangeRate}}" bindinput="tempBillExchangeRate" placeholder="请输入要兑换的比率" type="digit" style="text-align: center" auto-focus/>
+              </view>
+              <view class="weui-cell__ft">
+                  <view class="weui-vcode-btn" style="color:black">%</view>
+              </view>
+          </view>
+        </view>
+        <view class="weui-cells weui-cells_after-title">
+          <view class="weui-cell weui-cell_input">
+              <view class="weui-cell__hd">
+                  <view class="weui-label">赠送积分兑换率</view>
+              </view>
+              <view class="weui-cell__bd">
+                  <input class="weui-input" value="{{giveExchangeRate}}" bindinput="tempGiveExchangeRate" placeholder="请输入要兑换的比率" type="digit" style="text-align: center"/>
+              </view>
+              <view class="weui-cell__ft">
+                  <view class="weui-vcode-btn" style="color:black">%</view>
+              </view>
+          </view>
+        </view>
+      </view>
+      <view class="usermotto">
+        <button class="weui-btn btn-w" type="primary" plain="true"  catchtap="changeExchangeRate" disabled="{{!isAdmin}}">保存</button>
+      </view>
+    </view>

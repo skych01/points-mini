@@ -1,0 +1,74 @@
+/* add_consignee.wxss */
+
+/* add_sender.wxss */
+
+.form_panel {
+  height: 50px;
+  background-color: #fff;
+  border-bottom: solid 1px #999;
+  border-top: solid 1px #999;
+  flex-direction: row;
+  width: 90%;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.btn-w {
+  width: 90%;
+}
+
+.panel_head {
+  font: 18px Microsoft YaHei;
+  margin-left: 10px;
+  width: 25%;
+  font-weight: 900;
+  float: left;
+  padding-top: 12.5px;
+}
+
+.panel_body {
+  float: left;
+  padding-top: 12.5px;
+  padding-left: 20px;
+}
+
+.panel_body_input {
+  font: 16px Microsoft YaHei;
+}
+
+.panel_body_picker {
+  width: 200px;
+}
+
+.panel_body_input_quyu {
+  font: 13px Microsoft YaHei;
+  color: #9d9d9d;
+}
+
+.panel_btn {
+  width: 100%;
+  border-top: solid 1px #999;
+  position: absolute;
+  bottom: 0;
+  height: 50px;
+}
+
+.btn_quxiao {
+  float: left;
+  line-height: 40px;
+  width: 100px;
+  margin-top: 5px;
+  margin-left: 15%;
+  background-color: #d0d0d0;
+}
+
+.btn_submit {
+  margin-top: 5px;
+  margin-right: 15%;
+  line-height: 40px;
+  width: 100px;
+}
+
+.br {
+  height: 50px;
+}

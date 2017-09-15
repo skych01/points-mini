@@ -1,0 +1,99 @@
+/* sender_config.wxss */
+
+.panle {
+  margin-top: 20px;
+  background-color: #fff;
+}
+
+.panle_head {
+  height: 50px;
+  font: 20px/1.5 Tahoma, Helvetica, Arial, '宋体';
+  border-bottom: solid 1px #eee;
+  border-top: solid 1px #eee;
+  margin-left: 10px;
+  margin-right: 20px;
+}
+
+.panle_head_title {
+  line-height: 50px;
+  color: #888;
+  float: left;
+  letter-spacing: 8px;
+}
+
+.panle_head_body {
+  line-height: 50px;
+  float: right;
+  font-weight: 400;
+  font-size: 23px;
+  letter-spacing: 8px;
+}
+
+.panle_body {
+  font: 15px Microsoft YaHei;
+  margin-left: 10px;
+  margin-right: 20px;
+  height: 40px;
+  line-height: 40px;
+}
+
+.panle_body_title {
+  color: #888;
+  float: left;
+  letter-spacing: 8px;
+}
+
+.panle_body_body {
+  float: right;
+  color: #888;
+}
+
+.panle_foot {
+  height: 40px;
+  border-top: solid 1px #eee;
+  border-bottom: solid 1px #eee;
+  text-align: center;
+  width: 90%;
+  margin-left: 10px;
+  margin-right: 20px;
+
+}
+
+.btn {
+  text-align: center;
+  font: 15px Microsoft YaHei;
+  color: #888;
+  height: 40px;
+  line-height: 40px;
+}
+
+.btn_t {
+  width: 49.4%;
+  float: left;
+  line-height: 20px;
+  height: 20px;
+  color: #888;
+  font: 15px Microsoft YaHei;
+  text-align: center;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  border-right: solid 1px #eee;
+  border-left: solid 1px #eee;
+}
+
+.br {
+  height: 71px;
+}
+
+.btn_add {
+  width: 90%;
+  bottom: 10px;
+  position: fixed;
+  margin-left: 5%;
+}
+.text_content{
+  text-align: center
+}
+.margin_right{
+  margin-right: 10px
+}

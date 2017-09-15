@@ -1,0 +1,17 @@
+.text{
+  white-space:nowrap;
+  text-overflow:ellipsis;
+  overflow:hidden;
+}
+.weui-media-box {
+  padding:10px 0px 10px 10px;
+}
+.listRecords{
+  background-color:#fff;
+  border-top:1rpx solid #e5e5e5;
+  border-bottom:1rpx solid #e5e5e5;
+}
+.text_Style{
+  font-size: 16px;
+  color: #000000;
+}

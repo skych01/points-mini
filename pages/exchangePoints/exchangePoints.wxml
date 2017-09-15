@@ -1,0 +1,75 @@
+<view class="page">
+    <view>
+      <view class="head_bg">
+        <view bindtap="bindViewTap" class="userinfo">
+          <image class="userinfo-avatar" src="{{userInfo.avatarUrl}}" background-size="cover"></image>
+          <text wx:if="{{realName!=''}}" class="userinfo-nickname">{{realName}}</text>
+          <text wx:else class="userinfo-nickname">{{userInfo.nickName}}</text>
+        </view>
+        <view class="page__bd_spacing">
+          <view class="weui-flex" >
+              <view class="weui-flex__item">
+                <view class="placeholder"><text class="able">可用填报积分：</text><text class="points">{{restBillPoints}}</text></view>
+              </view>
+              <view class="weui-flex__item">
+                <view class="placeholder"><text class="able">可用赠送积分：</text><text class="points">{{restGivePoints}}</text></view>
+              </view>
+          </view>
+          <!--<view class="weui-flex">
+              <view class="weui-flex__item">
+                <view class="placeholder">可用赠送积分：<text class="points">{{restGivePoints}}</text></view>
+              </view>
+          </view>-->
+        </view>
+      </view>
+      
+      <view class="changePoints">
+        <view class="weui-cells weui-cells_after-title">
+          <view class="weui-cell weui-cell_input">
+              <view class="weui-cell__hd">
+                  <view class="weui-label">填报积分</view>
+              </view>
+              <view class="weui-cell__bd">
+                  <input class="weui-input" placeholder="请输入兑换积分" bindinput="billPiontsNum" type="number" auto-focus value="{{billPiontsNum}}"/>
+              </view>
+              <view class="weui-cell__ft">
+                  <view class="weui-vcode-btn" style="color:black;width:2em;">{{billExchangeRate}}%</view>
+              </view>
+          </view>
+        </view>
+        <view class="weui-cells weui-cells_after-title">
+          <view class="weui-cell weui-cell_input">
+              <view class="weui-cell__hd">
+                  <view class="weui-label">赠送积分</view>
+              </view>
+              <view class="weui-cell__bd">
+                  <input class="weui-input" placeholder="请输入兑换积分" bindinput="givePiontsNum" type="number" value="{{givePiontsNum}}"/>
+              </view>
+              <view class="weui-cell__ft">
+                  <view class="weui-vcode-btn" style="color:black;width:2em;">{{giveExchangeRate}}%</view>
+              </view>
+          </view>
+        </view>
+        <view class="weui-cells weui-cells_after-title">
+            <view class="weui-cell">
+                <view class="weui-cell__bd">兑换值</view>
+                <view class="weui-cell__ft points">{{exchangeVal}}</view>
+            </view>
+        </view>
+        <!--<view class="weui-cells__title">备注</view>-->
+        <view class="weui-cells weui-cells_after-title">
+            <view class="weui-cell">
+                <view class="weui-cell__bd">
+                    <textarea class="weui-textarea" placeholder="备注" bindinput="memo" style="height: 3.3em" />
+                    <view class="weui-textarea-counter">{{memoLength}}/200</view>
+                </view>
+            </view>
+        </view>
+
+        <view class="toExchange">
+          <button class="weui-btn btn-w" disabled="{{!isRead}}" type="primary" plain="true" catchtap="sureToExChange">兑换</button>
+        </view>
+      </view>
+    </view>
+    
+</view>

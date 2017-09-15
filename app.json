@@ -1,0 +1,56 @@
+{
+  "pages": [
+    "pages/index/index",
+    "pages/pointsDetails/pointsDetails",
+    "pages/pointsRecords/pointsRecords",
+    "pages/staffing/staffing",
+    "pages/setting/setting",
+    "pages/pointGive/pointGive",
+    "pages/billWrite/billWrite",
+    "pages/regist/regist",
+    "pages/employeeManage/employeeManage",
+    "pages/personBill/personBill",
+    "pages/billUpdate/billUpdate",
+    "pages/exchangePoints/exchangePoints",
+    "pages/exchangeRate/exchangeRate",
+    "pages/exchangePerson/exchangePerson"
+  ],
+  "tabBar": {
+    "list": [
+      {
+        "pagePath": "pages/index/index",
+        "text": "首页",
+        "iconPath": "lib/img/index-d.png",
+        "selectedIconPath": "lib/img/index-s.png"
+      },
+      {
+        "pagePath": "pages/personBill/personBill",
+        "text": "积分填报",
+        "iconPath": "lib/img/bill-d.png",
+        "selectedIconPath": "lib/img/bill-s.png"
+      },
+      {
+        "pagePath": "pages/pointGive/pointGive",
+        "text": "积分赠送",
+        "iconPath": "lib/img/give-d.png",
+        "selectedIconPath": "lib/img/give-s.png"
+      },
+      {
+        "pagePath": "pages/staffing/staffing",
+        "text": "积分统计",
+        "iconPath": "lib/img/cont-d.png",
+        "selectedIconPath": "lib/img/cont-s.png"
+      }
+    ]
+  },
+  "networkTimeout": {
+    "request": 10000
+  },
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarTitleText": "晶圣积分系统",
+    "navigationBarTextStyle": "black",
+    "navigationBarBackgroundColor": "#f8f8f8",
+    "backgroundColor": "#778899"
+  }
+}

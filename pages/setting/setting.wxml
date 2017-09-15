@@ -1,0 +1,15 @@
+<view class="page">
+    <view class="page__hd">
+        <view class="page__title" style="text-align:center;">参数设置</view>
+    </view>
+    <view class="page__bd">
+        <view class="weui-grids" style="border-top:none;">
+            <block wx:for="{{grids}}" wx:key="*this">
+                <navigator url="../exchangeRate/exchangeRate" class="weui-grid" hover-class="weui-grid_active" style="border-top:1rpx solid #d9d9d9;">
+                    <image class="weui-grid__icon" src="../../lib/img/exchange.png"/>
+                    <view class="weui-grid__label">兑换率</view>
+                </navigator>
+            </block>
+        </view>
+    </view>
+</view>
