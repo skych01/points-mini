@@ -1,7 +1,7 @@
 <view class="page">
     <view class="page__bd">
 
-        <view class="weui-cells weui-cells_after-title margin_top">
+        <view class="weui-cells weui-cells_after-title margin_top" wx:if="{{!isLoad&billList!=0}}">
             <view wx:for="{{billList}}" class="weui-cell weui-cell_access" bindtap="edit_bill" data-bill="{{item}}" hover-class="weui-cell_active">
                 <view class="weui-cell__bd">
                     {{item.pointsItem.itemName}}

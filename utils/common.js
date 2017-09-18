@@ -39,9 +39,8 @@ function getRequest(url, data, fn, parameter) {
                         title: '连接失败',
                         content: '网络连接失败，请稍后再试',
                     })
+                    console.log("恶意访问，服务器内部或页面逻辑有误");
                     loginNum = 0
-                    console.log(loginNum)
-
                 }
             }
         },

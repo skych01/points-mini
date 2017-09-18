@@ -19,6 +19,7 @@ Page({
     var role = app.globalData.roles;
     if (role.length == 0) {
         app.getRoleInfo(function(){
+            role = app.globalData.roles;
             if (!role.length) {
                 wx.redirectTo({
                     url: '../regist/regist'

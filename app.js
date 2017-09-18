@@ -74,6 +74,7 @@ App({
                                         //设置全局变量 
                                         that.globalData.userInfo = getUserRes.userInfo;
                                         wx.hideLoading();
+                                        console.log(fn)
                                         if (typeof fn == 'function') fn(pram);
                                         console.log('登录成功！authentication:' +
                                             wx.getStorageSync('authentication'));

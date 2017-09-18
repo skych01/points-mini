@@ -40,7 +40,6 @@ Page({
                     that.setData({
                         isAdmin: true
                     })
-                    console.log(roles[i])
                 }
             }
         }

@@ -10,34 +10,46 @@ Page({
         employeeList: [],
         registList: [],
         inputShowed: false,
+        isLoad: true
     },
     /**
      * 生命周期函数--监听页面加载
      */
     onShow: function () {
         var that = this
-        wx.showLoading({
-            title: '加载中',
-            mask: true
-        })
+        that.setData({
+            isLoad: true
+        });
 
         //获取权限
         var role = app.globalData.roles;
-        if (role.length == 0) {
+        var isAdmin=false;
+        //判断是否是管理员
+        for (var i = 0; i < role.length; i++) {
+            if (role[i] == 'ROLE_ADMIN') {
+                isAdmin = true
+                break;
+            }
+        }
+        if (isAdmin) {
+            that.dataInit();
+        } else {
             app.getRoleInfo(function () {
-                if (!role.length) {
-                    for (var i = 0; i < role.length; i++) {
-                        if (roles[i].roleName == 'ROLE_ADMIN') {
-                            isAdmin = true
-                            break;
-                        }
+                role = app.globalData.roles;
+                for (var i = 0; i < role.length; i++) {
+                    if (role[i] == 'ROLE_ADMIN') {
+                        isAdmin = true
+                        break;
                     }
-                } else {
+                }
+                if (isAdmin){
                     that.dataInit();
+                }else{
+                    wx.switchTab({
+                        url: '../index/index'
+                    });
                 }
             });
-        } else {
-            that.dataInit();
         }
     },
 
@@ -55,7 +67,9 @@ Page({
                         registList: registList,
                         employeeList: employeeList,
                     })
-                    wx.hideLoading()
+                    that.setData({
+                        isLoad: false
+                    });
                 }
             })
     },

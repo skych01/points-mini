@@ -1,56 +1,55 @@
 <!--consignee_config.wxml-->
 
 <view class="page">
-  <view class="weui-cells weui-cells_after-title">
-    <view class="weui-cell weui-cell_input">
-      <view class="weui-cell__hd">
-        <view class="weui-label">截止时间</view>
-      </view>
-      <view class="weui-cell__bd">
-        <picker mode="date" fields="month" value="{{date}}" start="2015-09" end="{{nowdate}}" bindchange="bindDateChange">
-          <view class="weui-input">{{date}}</view>
-        </picker>
-      </view>
+    <view class="weui-cells weui-cells_after-title">
+        <view class="weui-cell weui-cell_input">
+            <view class="weui-cell__hd">
+                <view class="weui-label">截止时间</view>
+            </view>
+            <view class="weui-cell__bd">
+                <picker mode="date" fields="month" value="{{date}}" start="2015-09" end="{{nowdate}}" bindchange="bindDateChange">
+                    <view class="weui-input">{{date}}</view>
+                </picker>
+            </view>
+        </view>
     </view>
-  </view>
-
-
-
-  <view class="weui-grids" style="margin_top:10px">
-    <block wx:key="*this">
-      <view url="" class="weui-grid " style="width:52%;padding:5px 0px;height:40px">
-        <view class="weui-grid__label" style="float:left;margin-left:10px;white-space:normal">员工姓名</view>
-      </view>
-      <view url=" " class="weui-grid " style="width:24%;padding:5px 0px;height:40px ">
-        <view class="weui-grid__label " style="white-space:nowrap">可用填报积分</view>
-      </view>
-      <view url=" " class="weui-grid " style="width:24%;padding:5px 0px;height:40px ">
-        <view class="weui-grid__label " style="white-space:nowrap ">可用赠送积分</view>
-      </view>
-    </block>
-  </view>
-
-  <view class="weui-cells weui-cells_after-title ">
-    <view wx:for="{{employeeList}}" class="weui-cell weui-cell_access" bindtap="pointsDetail" data-date="{{date}}" data-employee="{{item}}" hover-class="weui-cell_active">
-      <view class="weui-cell__bd">
-        {{item.real_name}}
-      </view>
-
-      <view class="weui-cell__ft margin_right" style="  width: 20%;">
-        {{item.billpoints}}分
-      </view>
-      <view class="weui-cell__ft weui-cell__ft_in-access " style="  width: 20%;">
-        {{item.give}}分
-      </view>
-
+    <view class="weui-grids" style="margin_top:10px">
+        <block wx:key="*this">
+            <view url="" class="weui-grid " style="width:52%;padding:5px 0px;height:40px">
+                <view class="weui-grid__label" style="float:left;margin-left:10px;white-space:normal">员工姓名</view>
+            </view>
+            <view url=" " class="weui-grid " style="width:24%;padding:5px 0px;height:40px ">
+                <view class="weui-grid__label " style="white-space:nowrap">可用填报积分</view>
+            </view>
+            <view url=" " class="weui-grid " style="width:24%;padding:5px 0px;height:40px ">
+                <view class="weui-grid__label " style="white-space:nowrap ">可用赠送积分</view>
+            </view>
+        </block>
     </view>
-  </view>
+    <view class="weui-cells weui-cells_after-title " wx:if="{{!isLoad}}">
+        <view wx:for="{{employeeList}}" class="weui-cell weui-cell_access" bindtap="pointsDetail" data-date="{{date}}" data-employee="{{item}}" hover-class="weui-cell_active">
+            <view class="weui-cell__bd">
+                {{item.real_name}}
+            </view>
 
-  <view class="text_panel refresh " wx:if="{{employeeList.length==0}}">
-    <text class="weui-article__p ">没有更多记录了</text>
-  </view>
+            <view class="weui-cell__ft margin_right" style="  width: 20%;">
+                {{item.billpoints}}分
+            </view>
+            <view class="weui-cell__ft weui-cell__ft_in-access " style="  width: 20%;">
+                {{item.give}}分
+            </view>
 
-  <!--<view class="panle " wx:for="{{employeeList}} ">
+        </view>
+    </view>
+
+    <view class="weui-loadmore" wx:if="{{isLoad}}">
+        <view class="weui-loading"></view>
+        <view class="weui-loadmore__tips">正在加载</view>
+    </view>
+    <view class="weui-loadmore weui-loadmore_line" bindtap="page_refresh" wx:if="{{employeeList.length==0&!isLoad}}">
+        <view class="weui-loadmore__tips weui-loadmore__tips_in-line">暂无数据</view>
+    </view>
+    <!--<view class="panle " wx:for="{{employeeList}} ">
     <view class="panle_head ">
       <view class="panle_head_title ">职员:</view>
       <view class="panle_head_body ">{{item.real_name}}</view>

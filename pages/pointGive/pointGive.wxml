@@ -1,42 +1,46 @@
 <view class="page">
-  <view class="weui-cells__title">员工列表</view>
+    <view class="weui-cells__title">员工列表</view>
 
-  <view class="weui-cells weui-cells_after-title">
-    <checkbox-group bindchange="switch_change">
-      <label class="weui-cell weui-check__label" wx:for="{{employeeList}}" wx:key="openId">
-
-        <view class="weui-cell__bd">{{item.realName}}</view>
-        <checkbox class="weui-check" value="{{item.openId}}" checked="{{item.checked}}" />
-
-        <view class="weui-cell__hd weui-check__hd_in-checkbox">
-          <icon class="weui-icon-checkbox_circle" type="circle" size="23" wx:if="{{!item.checked}}"></icon>
-          <icon class="weui-icon-checkbox_success" type="success" size="23" wx:if="{{item.checked}}"></icon>
-        </view>
-      </label>
-    </checkbox-group>
-    <view wx:if="{{employeeList.length==0}}" class="weui-cell">没有其他员工了</view>
-  </view>
-  <view class="weui-cells__title">当前可用
-    <text class="text_color">{{billValue}}</text> 填报积分，可用
-    <text class="text_color">{{giveValue}}</text> 赠送积分</view>
-  <view class="weui-cells__title">优先赠送填报积分，填报积分不足时使用赠送积分</view>
-  <view class="page__bd margin_top">
-    <view class="weui-cells weui-cells_after-title">
-      <view class="weui-cell weui-cell_input">
-        <view class="weui-cell__hd">
-          <view class="weui-label">赠送分数:</view>
-        </view>
-        <view class="weui-cell__bd">
-          <input class="weui-input" type="number" bindinput="change_name" value="{{givePoints}}" placeholder="请输入赠送的分数" />
-        </view>
-      </view>
+    <view class="weui-cells weui-cells_after-title" wx:if="{{!isLoad&employeeList.length!=0}}">
+        <checkbox-group bindchange="switch_change">
+            <label class="weui-cell weui-check__label" wx:for="{{employeeList}}" wx:key="openId">
+                <view class="weui-cell__bd">{{item.realName}}</view>
+                <checkbox class="weui-check" value="{{item.openId}}" checked="{{item.checked}}" />
+                <view class="weui-cell__hd weui-check__hd_in-checkbox">
+                    <icon class="weui-icon-checkbox_circle" type="circle" size="23" wx:if="{{!item.checked}}"></icon>
+                    <icon class="weui-icon-checkbox_success" type="success" size="23" wx:if="{{item.checked}}"></icon>
+                </view>
+            </label>
+        </checkbox-group>
     </view>
-    <view class="weui-btn-area">
-      <button class="weui-btn" type="primary" bindtap="submit">
-        确定赠送
-      </button>
+    <view class="weui-loadmore" wx:if="{{isLoad}}">
+        <view class="weui-loading"></view>
+        <view class="weui-loadmore__tips">正在加载</view>
     </view>
-  </view>
+    <view class="weui-loadmore weui-loadmore_line" bindtap="page_refresh" wx:if="{{employeeList.length==0&!isLoad}}">
+        <view class="weui-loadmore__tips weui-loadmore__tips_in-line">暂无数据</view>
+    </view>
+    <view class="weui-cells__title">当前可用
+        <text class="text_color">{{billValue}}</text> 填报积分，可用
+        <text class="text_color">{{giveValue}}</text> 赠送积分</view>
+    <view class="weui-cells__title">优先赠送填报积分，填报积分不足时使用赠送积分</view>
+    <view class="page__bd margin_top">
+        <view class="weui-cells weui-cells_after-title">
+            <view class="weui-cell weui-cell_input">
+                <view class="weui-cell__hd">
+                    <view class="weui-label">赠送分数:</view>
+                </view>
+                <view class="weui-cell__bd">
+                    <input class="weui-input" type="number" bindinput="change_name" value="{{givePoints}}" placeholder="请输入赠送的分数" />
+                </view>
+            </view>
+        </view>
+        <view class="weui-btn-area">
+            <button class="weui-btn" type="primary" bindtap="submit">
+                确定赠送
+            </button>
+        </view>
+    </view>
 
 
 
